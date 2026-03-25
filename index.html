@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunex Commodities | Excelencia en Café y Cacao</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#1C1917', // Stone 900
+                            coffee: '#4A3728',
+                            cocoa: '#5C3A21',
+                            gold: '#D4AF37',
+                            green: '#2E7D32', // Cameroon vibe
+                            light: '#F5F5F0'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Animations */
+        body { background-color: #F5F5F0; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hover-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Parallax Background */
+        .hero-bg {
+            background-image: linear-gradient(rgba(28, 25, 23, 0.7), rgba(28, 25, 23, 0.8)), url('https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Product Image Backgrounds */
+        .bg-coffee { background-image: linear-gradient(rgba(74, 55, 40, 0.8), rgba(74, 55, 40, 0.9)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop'); background-size: cover; }
+        .bg-cocoa { background-image: linear-gradient(rgba(92, 58, 33, 0.8), rgba(92, 58, 33, 0.9)), url('https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000&auto=format&fit=crop'); background-size: cover; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <i class="fa-solid fa-leaf text-brand-green text-3xl"></i>
+                    <span class="font-serif text-2xl font-bold text-brand-dark">Sunex<span class="text-brand-gold">Commodities</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#somos" class="text-gray-700 hover:text-brand-gold font-semibold transition-colors">Quiénes Somos</a>
+                    <a href="#impacto" class="text-gray-700 hover:text-brand-gold font-semibold transition-colors">Impacto T1-2025</a>
+                    <a href="#productos" class="text-gray-700 hover:text-brand-gold font-semibold transition-colors">Productos</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-brand-gold font-semibold transition-colors">Servicios</a>
+                </div>
+                <div class="hidden md:flex">
+                    <a href="#contacto" class="bg-brand-gold text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">Contactar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center hero-bg text-center px-4">
+        <div class="max-w-4xl mx-auto z-10 fade-in-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-green/20 text-brand-gold border border-brand-gold/50 text-sm font-semibold tracking-wider mb-6 uppercase backdrop-blur-sm">
+                África en Miniatura
+            </span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                El mundo busca mercados, <br> <span class="text-brand-gold">nosotros traemos la excelencia.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                Importación, exportación y comercialización de productos agroalimentarios de Camerún. Avalados por más de 20 años de experiencia junto a Nealiko Cam Plc.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#productos" class="bg-brand-gold text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition-all text-lg flex items-center justify-center gap-2">
+                    Nuestros Productos <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#impacto" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-brand-dark transition-all text-lg">
+                    Cifras Estratégicas
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#somos" class="text-white opacity-70 hover:opacity-100 transition-opacity">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="somos" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-brand-gold rounded-tl-3xl z-0"></div>
+                    <img src="https://images.unsplash.com/photo-1507133750056-11f49673cc35?q=80&w=1000&auto=format&fit=crop" alt="Agricultura en Camerún" class="rounded-3xl shadow-2xl relative z-10">
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl z-20 max-w-xs border-l-4 border-brand-green">
+                        <p class="font-bold text-brand-dark text-xl">20+ Años</p>
+                        <p class="text-sm text-gray-600">Experiencia garantizando control en origen.</p>
+                    </div>
+                </div>
+                <div class="fade-in-up">
+                    <h2 class="text-sm font-bold tracking-widest text-brand-green uppercase mb-2">Identidad Corporativa</h2>
+                    <h3 class="text-4xl font-serif font-bold text-brand-dark mb-6">Conectando la riqueza de Camerún con el mundo</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Sunex Commodity es una empresa establecida en Madrid, sucursal del exportador camerunés <strong>Nealiko Cam Plc</strong>. Garantizamos un control total desde la producción en origen hasta el destino final.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Nos encargamos de todos los trámites: normativas de importación, divisas, aduanas y logística en el Puerto de Douala. Ofrecemos máxima seguridad y transparencia a nuestros socios comerciales.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-shield-halved text-brand-gold text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Gestión Integral</h4>
+                                <p class="text-sm text-gray-500">Minimizamos riesgos operativos.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-map-location-dot text-brand-gold text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-brand-dark">Control Local</h4>
+                                <p class="text-sm text-gray-500">Instalaciones propias a 500m de la terminal.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datos Estratégicos & Animaciones -->
+    <section id="impacto" class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-green opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold opacity-10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <h2 class="text-sm font-bold tracking-widest text-brand-gold uppercase mb-2">Análisis Estratégico Q1-2025</h2>
+                <h3 class="text-4xl font-serif font-bold mb-4">Un Salto Histórico en el Comercio</h3>
+                <p class="text-gray-400">En alineación con la Estrategia Nacional de Desarrollo (SND30), Camerún ha logrado una resiliencia macroeconómica sin precedentes. Sunex se posiciona para capitalizar este crecimiento.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Stat 1 -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover-card backdrop-blur-sm group fade-in-up">
+                    <i class="fa-solid fa-chart-line text-brand-green text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="text-5xl font-bold font-serif mb-2 text-white">
+                        <span class="counter" data-target="35.3">0</span>%
+                    </div>
+                    <p class="text-sm text-brand-gold font-semibold uppercase tracking-wide mb-2">Crecimiento Exportaciones</p>
+                    <p class="text-xs text-gray-400">Récord de ingresos superando el billón de FCFA en el primer trimestre.</p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover-card backdrop-blur-sm group fade-in-up delay-100">
+                    <i class="fa-solid fa-arrow-trend-down text-brand-green text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="text-5xl font-bold font-serif mb-2 text-white">
+                        <span class="counter" data-target="88">0</span>%
+                    </div>
+                    <p class="text-sm text-brand-gold font-semibold uppercase tracking-wide mb-2">Reducción Déficit Comercial</p>
+                    <p class="text-xs text-gray-400">Contracción histórica respaldada por la política de sustitución de importaciones.</p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover-card backdrop-blur-sm group fade-in-up delay-200">
+                    <i class="fa-solid fa-seedling text-brand-gold text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="text-5xl font-bold font-serif mb-2 text-white">
+                        <span class="counter" data-target="44.8">0</span>%
+                    </div>
+                    <p class="text-sm text-brand-gold font-semibold uppercase tracking-wide mb-2">Exportaciones de Cacao</p>
+                    <p class="text-xs text-gray-400">El cacao reafirma su hegemonía aportando más de 500 mil millones de FCFA.</p>
+                </div>
+                <!-- Stat 4 -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl text-center hover-card backdrop-blur-sm group fade-in-up delay-300">
+                    <i class="fa-solid fa-earth-africa text-brand-gold text-4xl mb-4 group-hover:scale-110 transition-transform"></i>
+                    <div class="text-5xl font-bold font-serif mb-2 text-white">
+                        <span class="counter" data-target="5">0</span>º
+                    </div>
+                    <p class="text-sm text-brand-gold font-semibold uppercase tracking-wide mb-2">Productor Mundial</p>
+                    <p class="text-xs text-gray-400">Camerún destaca como el quinto productor mundial de cacao de alta calidad.</p>
+                </div>
+            </div>
+
+            <!-- Contexto SND30 -->
+            <div class="mt-16 bg-gradient-to-r from-brand-coffee to-brand-cocoa rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 fade-in-up shadow-2xl">
+                <div class="md:w-2/3">
+                    <h4 class="text-2xl font-serif font-bold text-white mb-3">Alineación Estratégica (SND30)</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Más allá de la exportación bruta, en Sunex y Nealiko lideramos la transición hacia el procesamiento local. Aprovechamos la infraestructura emergente (corredor Kribi, red Nachtigal) para elevar la complejidad económica, reducir la exposición internacional y garantizar la soberanía alimentaria y productiva de Camerún hacia el 2030.
+                    </p>
+                </div>
+                <div class="md:w-1/3 text-center md:text-right">
+                    <div class="inline-flex items-center justify-center w-24 h-24 rounded-full border-4 border-brand-green text-brand-green text-3xl font-bold">
+                        SND<br>30
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos: Tarjetas Interactivas -->
+    <section id="productos" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-sm font-bold tracking-widest text-brand-green uppercase mb-2">Nuestra Materia Prima</h2>
+                <h3 class="text-4xl font-serif font-bold text-brand-dark mb-4">Productos de Excelencia</h3>
+                <div class="w-24 h-1 bg-brand-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Card CACAO -->
+                <div class="group relative h-[500px] rounded-3xl overflow-hidden shadow-2xl fade-in-up cursor-pointer">
+                    <div class="absolute inset-0 bg-cocoa transition-transform duration-700 group-hover:scale-105"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full text-white transition-all duration-500 transform translate-y-8 group-hover:translate-y-0">
+                        <div class="flex justify-between items-end mb-4">
+                            <h4 class="text-4xl font-serif font-bold">Cacao</h4>
+                            <span class="bg-brand-gold text-brand-dark text-xs font-bold px-3 py-1 rounded-full">Trinitario</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            Camerún produce un cacao de color rojizo y alto contenido graso, muy valorado en la industria europea. Cultivado bajo estándares ecológicos (UTZ, Fairtrade), garantizamos trazabilidad y sostenibilidad en cada grano.
+                        </p>
+                        
+                        <!-- Datos al hover -->
+                        <div class="grid grid-cols-2 gap-4 border-t border-white/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase font-bold">Variedad</p>
+                                <p class="text-sm font-semibold">Forastero & Criollo</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase font-bold">Superficie</p>
+                                <p class="text-sm font-semibold">730k Hectáreas</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase font-bold">Altitud</p>
+                                <p class="text-sm font-semibold">0 - 1250 m</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-gold text-xs uppercase font-bold">Valor Export.</p>
+                                <p class="text-sm font-semibold">~$630M USD</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card CAFÉ -->
+                <div class="group relative h-[500px] rounded-3xl overflow-hidden shadow-2xl fade-in-up delay-100 cursor-pointer">
+                    <div class="absolute inset-0 bg-coffee transition-transform duration-700 group-hover:scale-105"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full text-white transition-all duration-500 transform translate-y-8 group-hover:translate-y-0">
+                        <div class="flex justify-between items-end mb-4">
+                            <h4 class="text-4xl font-serif font-bold">Café</h4>
+                            <span class="bg-brand-green text-white text-xs font-bold px-3 py-1 rounded-full">Arábica & Robusta</span>
+                        </div>
+                        <p class="text-gray-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            Cultivado en ricos suelos volcánicos, nuestro café ofrece un perfil único. El Arábica aporta suavidad y dulzura frutal, mientras que el Robusta proporciona un cuerpo denso e intenso ideal para blends premium.
+                        </p>
+                        
+                        <!-- Datos al hover -->
+                        <div class="grid grid-cols-2 gap-4 border-t border-white/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                            <div>
+                                <p class="text-brand-green text-xs uppercase font-bold">Composición</p>
+                                <p class="text-sm font-semibold">90% Robusta / 10% Arábica</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-green text-xs uppercase font-bold">Procesado</p>
+                                <p class="text-sm font-semibold">Vía Húmeda (Arábica)</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-green text-xs uppercase font-bold">Cosecha</p>
+                                <p class="text-sm font-semibold">Septiembre - Febrero</p>
+                            </div>
+                            <div>
+                                <p class="text-brand-green text-xs uppercase font-bold">Mercados</p>
+                                <p class="text-sm font-semibold">Crecimiento en Italia y Europa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-sm font-bold tracking-widest text-brand-gold uppercase mb-2">Cadena de Valor</h2>
+                <h3 class="text-4xl font-serif font-bold text-brand-dark">Sin Intermediarios</h3>
+                <p class="mt-4 text-gray-500 max-w-2xl mx-auto">Desde la siembra hasta la entrega en destino, controlamos cada paso para asegurar la máxima calidad y eficiencia.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Serv 1 -->
+                <div class="bg-brand-light p-8 rounded-2xl hover-card text-center group border border-gray-100 fade-in-up">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:bg-brand-green transition-colors">
+                        <i class="fa-solid fa-leaf text-2xl text-brand-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-brand-dark">La Cosecha</h4>
+                    <p class="text-sm text-gray-600">Como productores, garantizamos trazabilidad y control de calidad desde el origen rural en Camerún.</p>
+                </div>
+                <!-- Serv 2 -->
+                <div class="bg-brand-light p-8 rounded-2xl hover-card text-center group border border-gray-100 fade-in-up delay-100">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:bg-brand-gold transition-colors">
+                        <i class="fa-solid fa-gears text-2xl text-brand-gold group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-brand-dark">Procesado</h4>
+                    <p class="text-sm text-gray-600">Planta de 5200 m² en Douala. Procesamos cerca de 20.000 MT de granos, listos para la exportación.</p>
+                </div>
+                <!-- Serv 3 -->
+                <div class="bg-brand-light p-8 rounded-2xl hover-card text-center group border border-gray-100 fade-in-up delay-200">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:bg-brand-coffee transition-colors">
+                        <i class="fa-solid fa-warehouse text-2xl text-brand-coffee group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-brand-dark">Almacenaje</h4>
+                    <p class="text-sm text-gray-600">Instalaciones propias de 1000 MT en el puerto de Douala, flexibilizando la cadena de suministro.</p>
+                </div>
+                <!-- Serv 4 -->
+                <div class="bg-brand-light p-8 rounded-2xl hover-card text-center group border border-gray-100 fade-in-up delay-300">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md group-hover:bg-blue-600 transition-colors">
+                        <i class="fa-solid fa-ship text-2xl text-blue-600 group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="font-bold text-lg mb-3 text-brand-dark">Logística</h4>
+                    <p class="text-sm text-gray-600">Servicio integral de flete vía el puerto de Douala, gestionando normativas y aduanas internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-leaf text-brand-green text-3xl"></i>
+                        <span class="font-serif text-2xl font-bold">Sunex<span class="text-brand-gold">Commodities</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Conectando los mejores ecosistemas agrícolas de Camerún con los mercados globales, promoviendo el desarrollo endógeno y la sostenibilidad.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-gold transition-colors"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-white/10 pb-2">Enlaces Rápidos</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#somos" class="hover:text-brand-gold transition-colors">Quiénes Somos</a></li>
+                        <li><a href="#impacto" class="hover:text-brand-gold transition-colors">Impacto Macro & SND30</a></li>
+                        <li><a href="#productos" class="hover:text-brand-gold transition-colors">Café y Cacao</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-gold transition-colors">Nuestros Servicios</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-white/10 pb-2">Contacto Matriz</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+                            <span>Sede Madrid, España <br> <span class="text-xs">Sucursal de Nealiko Cam Plc (Camerún)</span></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-gold"></i>
+                            <span>+34 (Teléfono de contacto)</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-gold"></i>
+                            <span>info@sunexcommodities.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-500 text-xs border-t border-white/10 pt-8">
+                <p>&copy; 2025 Sunex Commodities. Todos los derechos reservados. Basado en informes de estrategia MINEPAT / INS T1-2025.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para Animaciones -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar cambio de fondo al scrollear
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-white/95', 'shadow-md');
+                    navbar.classList.remove('bg-transparent', 'shadow-none');
+                } else {
+                    navbar.classList.remove('bg-white/95', 'shadow-md');
+                    navbar.classList.add('bg-transparent', 'shadow-none');
+                }
+            });
+
+            // Animación de aparición al hacer scroll (Fade-in-up)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Si el elemento contiene contadores, iniciar animación
+                        const counters = entry.target.querySelectorAll('.counter');
+                        if (counters.length > 0) {
+                            startCounters(counters);
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Lógica para contadores numéricos animados
+            function startCounters(counters) {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText.replace(',', '.');
+                        
+                        // Velocidad de animación
+                        const inc = target / 100;
+
+                        if (count < target) {
+                            // Formato decimal si el target tiene decimales
+                            let newValue = count + inc;
+                            if (target % 1 !== 0) {
+                                counter.innerText = parseFloat(newValue).toFixed(1);
+                            } else {
+                                counter.innerText = Math.ceil(newValue);
+                            }
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
